@@ -20,4 +20,4 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 
 # Запуск
-CMD ["python", "bot.py"]
+CMD ["python", "main.py"]
