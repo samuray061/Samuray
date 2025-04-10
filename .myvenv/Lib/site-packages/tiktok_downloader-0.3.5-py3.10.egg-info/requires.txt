@@ -1,0 +1,8 @@
+bs4
+flask
+cloudscraper
+requests
+rich
+tqdm
+httpx
+aiohttp

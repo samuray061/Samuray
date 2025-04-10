@@ -1,0 +1,83 @@
+Metadata-Version: 2.2
+Name: pinterest_downloader
+Version: 2.0.6
+Summary: A Pinterest media downloader
+Home-page: https://github.com/x7007x/pinterest-downloader
+Author: Ahmed Negm
+Author-email: a7mednegm.x@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# pinterest-downloader
+
+This Python library allows you to search for images on Pinterest and download them asynchronously. It uses asynchronous programming to efficiently search
+
+## Features
+
+- Search Pinterest for images based on a query
+- Download images and videos from Pinterest
+- Asynchronous operations for improved performance
+- Supports both image and video content from Pinterest
+
+
+## Requirements
+
+- Python 3.7+
+- aiohttp
+
+
+## Installation
+
+You can install this package using pip:
+
+```shellscript
+pip3 install -U pinterest-downloader
+```
+
+## Usage
+
+You can use this library in your Python projects by importing the necessary functions:
+
+```python
+import asyncio
+from pinterest_downloader import *
+
+async def main():
+    query = "cute cats"
+    results = await pinterest_search(query)
+
+    for result in results:
+        print(result['url'])
+
+    result = await download_pinterest_media("https://pin.it/6nEi5NMe9", return_url=True)
+    if result['success']:
+        print(f"Type: {result['type']}, URL: {result['url']}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+## Available Functions
+
+1. `pinterest_search(query: str) -> List[Dict[str, str]]`
+
+    1. Searches Pinterest for images based on the given query.
+    2. Returns a list of dictionaries containing image URLs and thumbnails.
+
+2. `download_pinterest_media(url: str, output_dir: str = '.', return_url: bool = False) -> Dict[str, Any]`
+
+    1. Downloads a single image or video from Pinterest.
+    2. Returns a dictionary with information about the downloaded media.
